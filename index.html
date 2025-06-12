@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>I love you mi corazón de melocotón</title>
   <style>
     body {
@@ -71,16 +71,6 @@
       z-index: 10;
     }
 
-    .floating-text {
-      position: absolute;
-      color: #ffdde1;
-      font-size: 20px;
-      font-weight: bold;
-      pointer-events: none;
-      animation: floatUpText 1.8s ease-out forwards;
-      text-shadow: 0 0 6px #ffffff;
-    }
-
     @keyframes floatUp {
       0% {
         transform: translateY(100vh) scale(1) rotate(45deg);
@@ -99,24 +89,12 @@
       0% { transform: scale(1.5) rotate(45deg); opacity: 1; }
       100% { transform: scale(3) rotate(45deg); opacity: 0; }
     }
-
-    @keyframes floatUpText {
-      0% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-80px) scale(1.5);
-      }
-    }
   </style>
 </head>
 <body>
-  <h1>I love you mi corazón de melocotón</h1>
+  <h1>Muak Muak</h1>
   <script>
     const body = document.body;
-    let textShown = false;
 
     function createHeart() {
       const heart = document.createElement('div');
@@ -126,22 +104,8 @@
       heart.style.opacity = 0.6 + Math.random() * 0.4;
       heart.style.background = `hsl(${Math.random() * 360}, 80%, 85%)`;
 
-      heart.addEventListener('click', (e) => {
+      heart.addEventListener('click', () => {
         heart.classList.add('explode');
-
-        if (!textShown) {
-          const text = document.createElement('div');
-          text.className = 'floating-text';
-          text.innerText = 'Te amo mi niña hermosa';
-          text.style.left = e.clientX + 'px';
-          text.style.top = e.clientY + 'px';
-          document.body.appendChild(text);
-
-          setTimeout(() => text.remove(), 1800);
-          textShown = true;
-          setTimeout(() => textShown = false, 2500);
-        }
-
         setTimeout(() => heart.remove(), 600);
       });
 
@@ -153,3 +117,4 @@
   </script>
 </body>
 </html>
+
